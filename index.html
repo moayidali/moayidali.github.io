@@ -8,27 +8,23 @@
 <meta name="description" content="UX and system designer at Adonis, designing maritime HR and crew-training systems. Four peer-reviewed papers in computer vision and software engineering.">
 
 <!-- ============================================================
-     BEFORE YOU DEPLOY — three things to change
+     HOW TO UPDATE THIS PAGE
      ------------------------------------------------------------
-     1. og:url and og:image below — once you know your real URL, put it in
-        both (og:image needs the full absolute URL, e.g.
-        https://yoursite.pages.dev/og-cover.png, or LinkedIn won't show
-        the preview card).
-     2. cv.pdf — drop your CV into this folder with that exact name.
-     3. Images currently load from your Google Site (the lh3.googleusercontent
-        URLs). They work today, but those links can break if you edit or
-        delete the images in Sites. When you have a spare ten minutes, save
-        your originals into an /img folder here and swap each src.
-        Every one is marked with a SWAP comment in the markup below.
+     IMAGES: all nine live in the img/ folder next to this file.
+       Replace each placeholder with your own file, keeping the SAME
+       filename and extension, and nothing here needs editing.
+     CV: drop your CV in beside this file, named exactly cv.pdf
+     OUTCOMES: search for "ADD YOUR OUTCOME" — two commented blocks are
+       ready for the numbers behind each case study.
      ============================================================ -->
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Moayid Ali Zaidi — UX &amp; System Designer">
 <meta property="og:description" content="I design the systems behind maritime HR and crew training — from workflow logic to the screens people use at sea.">
-<meta property="og:image" content="og-cover.png">
-<meta property="og:url" content="https://example.pages.dev/">
+<meta property="og:image" content="https://moayidali.github.io/og-cover.png">
+<meta property="og:url" content="https://moayidali.github.io/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#16262E">
+<meta name="theme-color" content="#F5F7F4">
 <link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="favicon-512.png">
 
@@ -43,10 +39,11 @@
   --sea:#1D4E4A;
   --brass:#7A5D15;
   --brass-bright:#D2A63C;
-  --paper:#EFF1EE;
-  --panel:#E1E5E1;
+  --paper:#F5F7F4;
+  --panel:#E8ECE7;
   --muted:#54615C;
-  --rule:#C9D0CB;
+  --rule:#D8DED8;
+  --card:#FFFFFF;
   --rule-dark:#2B3F47;
   --sans:Archivo,"Helvetica Neue",Arial,sans-serif;
   --serif:Spectral,"Source Serif 4",Georgia,serif;
@@ -70,66 +67,66 @@ img{max-width:100%;display:block}
 .shell{max-width:1080px;margin:0 auto;padding:0 28px}
 .band{padding:88px 0}
 .band--panel{background:var(--panel)}
-.band--ink{background:var(--ink);color:var(--paper)}
-.band--ink a{color:var(--brass-bright)}
-.band--ink h2{color:var(--paper)}
+.band--ink{background:var(--card);color:var(--ink);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.band--ink a{color:var(--brass)}
+.band--ink h2{color:var(--sea)}
 
 .eyebrow{
   font-family:var(--sans);font-weight:600;font-size:11.5px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--brass);
 }
-.band--ink .eyebrow{color:var(--brass-bright)}
+.band--ink .eyebrow{color:var(--brass)}
 h2{font-size:clamp(24px,3.4vw,32px);line-height:1.12;letter-spacing:-.015em;font-weight:700;color:var(--sea)}
 h3{font-size:clamp(19px,2.4vw,23px);line-height:1.2;letter-spacing:-.01em;font-weight:700;color:var(--sea)}
-.band--ink h3{color:var(--paper)}
+.band--ink h3{color:var(--ink)}
 h4{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
 .measure{max-width:var(--measure)}
 .section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
 
 /* ---------- nav ---------- */
 .nav{
-  position:sticky;top:0;z-index:20;background:rgba(22,38,46,.94);
-  backdrop-filter:blur(8px);border-bottom:1px solid var(--rule-dark);
+  position:sticky;top:0;z-index:20;background:rgba(245,247,244,.9);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
 }
 .nav .shell{display:flex;align-items:center;gap:28px;height:60px}
 .nav .mark{
   font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.06em;
-  color:var(--brass-bright);text-decoration:none;margin-right:auto;
+  color:var(--brass);text-decoration:none;margin-right:auto;
 }
 .nav a.item{
   font-family:var(--sans);font-size:13.5px;font-weight:500;letter-spacing:.02em;
-  color:#B8C2BD;text-decoration:none;
+  color:var(--muted);text-decoration:none;
 }
-.nav a.item:hover{color:var(--paper)}
+.nav a.item:hover{color:var(--ink)}
 @media (max-width:720px){
   .nav .shell{gap:16px;overflow-x:auto;height:56px}
   .nav a.item{white-space:nowrap;font-size:13px}
 }
 
 /* ---------- hero ---------- */
-.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.hero{background:var(--paper);color:var(--ink);position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
 .hero::after{
   content:"";position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(circle at 82% 108%, rgba(29,78,74,.55), transparent 58%),
-    repeating-linear-gradient(0deg, rgba(239,241,238,.045) 0 1px, transparent 1px 40px),
-    repeating-linear-gradient(90deg, rgba(239,241,238,.045) 0 1px, transparent 1px 40px);
+    radial-gradient(circle at 86% 112%, rgba(29,78,74,.11), transparent 62%),
+    repeating-linear-gradient(0deg, rgba(22,38,46,.035) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(22,38,46,.035) 0 1px, transparent 1px 44px);
 }
 .hero .shell{position:relative;z-index:1;padding-top:84px;padding-bottom:84px}
 .hero-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:56px;align-items:center}
 @media (max-width:820px){.hero-grid{grid-template-columns:1fr;gap:36px}}
 .hero h1{
   font-size:clamp(34px,6.2vw,58px);line-height:1.02;letter-spacing:-.025em;
-  font-weight:700;color:var(--paper);margin-bottom:22px;
+  font-weight:700;color:var(--ink);margin-bottom:22px;
 }
-.hero .thesis{font-size:clamp(18px,2.2vw,22px);line-height:1.45;max-width:34ch;color:#D8DED9}
-.hero .rule{width:110px;height:3px;background:var(--brass-bright);margin:26px 0}
+.hero .thesis{font-size:clamp(18px,2.2vw,22px);line-height:1.45;max-width:34ch;color:var(--sea)}
+.hero .rule{width:110px;height:3px;background:var(--brass);margin:26px 0}
 .hero .facts{
-  font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;color:#9EACA6;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;color:var(--muted);
   display:flex;flex-wrap:wrap;gap:6px 20px;margin-bottom:30px;
 }
 .portrait{
-  border:1px solid var(--rule-dark);padding:9px;background:rgba(239,241,238,.04);
+  border:1px solid var(--rule);padding:9px;background:var(--card);
 }
 .portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
 
@@ -138,10 +135,10 @@ h4{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
   font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:.04em;
   padding:12px 22px;text-decoration:none;border:1.5px solid transparent;transition:.15s ease;
 }
-.btn--solid{background:var(--brass-bright);color:var(--ink)}
-.btn--solid:hover{background:#E4BC5F;color:var(--ink)}
-.btn--ghost{border-color:#54615C;color:var(--paper)}
-.btn--ghost:hover{border-color:var(--brass-bright);color:var(--brass-bright)}
+.btn--solid{background:var(--sea);color:#fff}
+.btn--solid:hover{background:#256158;color:#fff}
+.btn--ghost{border-color:#A9B3AC;color:var(--ink)}
+.btn--ghost:hover{border-color:var(--brass);color:var(--brass)}
 .btn--dark{background:var(--sea);color:#fff}
 .btn--dark:hover{background:#256158;color:#fff}
 
@@ -153,15 +150,15 @@ h4{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
 /* ---------- case studies ---------- */
 .case{display:flex;flex-direction:column;gap:26px}
 .case + .case{margin-top:76px;padding-top:76px;border-top:1px solid var(--rule)}
-.band--panel .case + .case{border-color:#CFD5CF}
+.band--panel .case + .case{border-color:#CDD5CE}
 .case-meta{
   font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.13em;
   text-transform:uppercase;color:var(--muted);
 }
-.pao{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.pao{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule)}
 @media (max-width:780px){.pao{grid-template-columns:1fr}}
 .pao > div{background:var(--paper);padding:20px 22px;display:flex;flex-direction:column;gap:9px}
-.band--panel .pao{background:#CFD5CF}
+.band--panel .pao{background:#CDD5CE}
 .band--panel .pao > div{background:var(--panel)}
 .pao p{font-size:15.5px;line-height:1.55}
 .todo{
@@ -225,13 +222,13 @@ details.deep li::marker{color:var(--brass)}
 .pubs{display:flex;flex-direction:column}
 .pub{
   display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:baseline;
-  padding:22px 0;border-top:1px solid var(--rule-dark);
+  padding:22px 0;border-top:1px solid var(--rule);
 }
 .pub:first-child{border-top:none;padding-top:0}
 @media (max-width:780px){.pub{grid-template-columns:1fr;gap:8px}}
-.pub .yr{font-family:var(--sans);font-size:20px;font-weight:700;color:var(--brass-bright);font-variant-numeric:tabular-nums}
+.pub .yr{font-family:var(--sans);font-size:20px;font-weight:700;color:var(--brass);font-variant-numeric:tabular-nums}
 .pub h3{font-size:18px;line-height:1.3;font-weight:600;max-width:52ch}
-.pub .venue{font-size:14.5px;color:#9EACA6;margin-top:5px}
+.pub .venue{font-size:14.5px;color:var(--muted);margin-top:5px}
 .pub .go{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.06em;white-space:nowrap}
 
 /* ---------- two-up: education / certs ---------- */
@@ -252,12 +249,12 @@ details.deep li::marker{color:var(--brass)}
 /* ---------- contact ---------- */
 .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:end}
 @media (max-width:820px){.contact-grid{grid-template-columns:1fr;gap:32px}}
-.contact h2{font-size:clamp(26px,4vw,40px);color:var(--paper);letter-spacing:-.02em}
+.contact h2{font-size:clamp(26px,4vw,40px);color:var(--sea);letter-spacing:-.02em}
 .contact .lines{display:flex;flex-direction:column;gap:12px;font-family:var(--sans);font-size:15px}
-.contact .lines a{text-decoration:none;border-bottom:1px solid rgba(210,166,60,.4);padding-bottom:2px;width:fit-content}
+.contact .lines a{text-decoration:none;border-bottom:1px solid rgba(122,93,21,.35);padding-bottom:2px;width:fit-content}
 .foot{
-  border-top:1px solid var(--rule-dark);margin-top:64px;padding-top:22px;
-  font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:#7E8C86;
+  border-top:1px solid var(--rule);margin-top:64px;padding-top:22px;
+  font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:var(--muted);
   display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
 }
 
@@ -300,7 +297,6 @@ details.deep li::marker{color:var(--brass)}
         </div>
       </div>
       <div class="portrait">
-        <!-- SWAP: replace with your own file, e.g. img/portrait.jpg -->
         <img src="img_007.png" alt="Moayid Ali Zaidi" width="640" height="800">
       </div>
     </div>
@@ -329,7 +325,7 @@ details.deep li::marker{color:var(--brass)}
 
     <article class="case reveal">
       <div>
-        <p class="case-meta">System designer · Adonis · <span class="todo">year</span></p>
+        <p class="case-meta">System designer · Adonis</p>
         <h3>Employee data replication between the HR core and external systems</h3>
       </div>
       <div class="pao">
@@ -341,31 +337,32 @@ details.deep li::marker{color:var(--brass)}
           <h4>What I did</h4>
           <p>Designed a two-stage replication flow: validate into staging tables before anything is written, then a controlled write-back to the external system. Mapped every branch — create a new person versus update an existing employee, documents, activity records — so developers had one unambiguous spec instead of a conversation.</p>
         </div>
+        <!-- ADD YOUR OUTCOME: delete this comment's wrapper and paste the block below
+             back in once you have the numbers (sync time before/after, manual
+             re-entry eliminated, ticket reduction). Then change .pao's
+             grid-template-columns back to repeat(3,1fr).
         <div>
           <h4>Outcome</h4>
-          <p><span class="todo">Add the numbers here — sync time before and after, manual re-entry eliminated, error or ticket reduction. A rough honest figure beats none.</span></p>
+          <p>Your numbers here.</p>
         </div>
+        -->
       </div>
 
       <div class="gallery">
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVHLx4tCfavwZT2lWjhwYotUwP5hL8OkPO716CChAQP3cuoMpeZAXWoEyJqCmJ7il6BCUtVAscnpdwc7yVW0UU3S8Dy1kSapVQqwTcAn9WdEoUpbc3lp1tF2LSYHw14R6yg3MwCIxnRiEtr902qs1D8IXdfDs0dadCt6_Nyl0v2M8neX3OEtzHREZOXTlVcpg2oXErKzqWG-N_ZBp3kYWSxzuraT9eRlM0p0bF6=w1280" alt="Low-fidelity dashboard wireframe made in Balsamiq" loading="lazy">
+          <img src="img/hr-dashboard-lofi.png" alt="Low-fidelity dashboard wireframe made in Balsamiq" loading="lazy">
           <figcaption><b>Balsamiq · low fidelity</b>Dashboard structure settled before any visual decisions — what an HR administrator needs on first load.</figcaption>
         </figure>
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXJjCFBBtjMklupDnb0viJ6hJQcebdvR78u2t5L-NvD_z7I0oFuhoDh2YyelPXscTWI0Q-gdKiZ1IRqFAad-fFKdNWbnGMAafmf8EDh_aqoGHIJdK3evO-TzghPmG6aPug00xTPBp5_fZ7sYcEb3-yyXE8t4cQv_4m-wYmM3NnFHNRFmIbNA6AMu8pWHCz9YLan2uvcsO6Kjq9yS8lOoriygMieHVwuLUAC5g7V=w1280" alt="Low-fidelity mobile layout made in Balsamiq" loading="lazy">
+          <img src="img/hr-mobile-lofi.png" alt="Low-fidelity mobile layout made in Balsamiq" loading="lazy">
           <figcaption><b>Balsamiq · low fidelity</b>The same information re-ordered for a phone, where a crew member has one column and poor connectivity.</figcaption>
         </figure>
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWiY0Lad1puZPX6EzuUbrUPkjqcnuDxbanBRphgnSjjGdo9lY-o-fridAbc9Nt9Q99XL6s8TboEYiPW6hnnzrmZdVcrPl9og5NErSMbGn7aGe0IgNvDb0jGwJ7MHkRwSmjkjloSOWTy6NYZ_zs-et81CMl45Y4orxc8sk_nio53UgoN1CxFkV5cLz4HSskP33qRZtBl1nczllg-dD1Pvj6AAUazVZHkad83G1HDFKE=w1280" alt="High-fidelity user list and details screen made in Figma" loading="lazy">
+          <img src="img/hr-user-list.png" alt="High-fidelity user list and details screen made in Figma" loading="lazy">
           <figcaption><b>Figma · high fidelity</b>User list and detail view — the same record shape the replication logic writes to, so the screen and the spec can't drift apart.</figcaption>
         </figure>
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXCniPaWFxtM-RyrfpFTHOmlzvb3Nyu4NuWpT9tiUNw5hJxETP4ac2W1po9Y0mPUM1hCHCdR4dW5fcxdyC9X037HAXWCrYQJuO2LTfjht7xH05BjghBwWqhm8-Mttcj7okq5RCZE-zUIDUd2p6aUeVbvccibdjHf5wcrKCPwFGwaHDRC-T5mDHM-UPr3n0xp-n8iNgxokyTqGHlKirtXNfWIqjgN70i5wa1m5q5VfM=w1280" alt="High-fidelity personal details form made in Figma" loading="lazy">
+          <img src="img/hr-personal-details.png" alt="High-fidelity personal details form made in Figma" loading="lazy">
           <figcaption><b>Figma · high fidelity</b>Personal details form, grouped so the fields that trigger a write-back sit together rather than scattered down the page.</figcaption>
         </figure>
       </div>
@@ -380,14 +377,13 @@ details.deep li::marker{color:var(--brass)}
             <li><b>Documents and activities.</b> Attached documents and activity records are synchronised alongside the employee they belong to, so a record never lands half-complete.</li>
             <li><b>Stage two — write-back.</b> Validated changes are replicated back to the external system in a controlled pass, which is what keeps the two systems in agreement instead of racing each other.</li>
           </ul>
-          <p><span class="todo">Optional: add the one design decision you'd defend in an interview — a branch you deliberately made explicit, or a case you decided not to automate.</span></p>
         </div>
       </details>
     </article>
 
     <article class="case reveal">
       <div>
-        <p class="case-meta">System designer · Adonis · <span class="todo">year</span></p>
+        <p class="case-meta">System designer · Adonis</p>
         <h3>Moodle integration for offshore crew training</h3>
       </div>
       <div class="pao">
@@ -399,31 +395,30 @@ details.deep li::marker{color:var(--brass)}
           <h4>What I did</h4>
           <p>Designed an e-learning solution that joins Moodle to the existing platform: single sign-on so no one manages a second password, and a replicator that handles enrolment differently office-side and vessel-side because the two contexts genuinely differ.</p>
         </div>
+        <!-- ADD YOUR OUTCOME: vessels or crew onboarded, courses completed,
+             support load before and after. Paste back in when you have it.
         <div>
           <h4>Outcome</h4>
-          <p><span class="todo">Add the numbers — vessels or crew onboarded, courses completed, support load before and after.</span></p>
+          <p>Your numbers here.</p>
         </div>
+        -->
       </div>
 
       <div class="gallery">
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVuEHurz-ObBZEaoqb70gc4MoItv8AEifUFRtjfM40nr7E9PObwrrKeyYdYFlmm37-ocBBGakcHBOWgp7L6BN8tCdZe7fZY07M8LH-IUt4XxYs2UMePae7ppUYbn4_do5UZeE35G6jQEkl5zWrQZmwlAWaYm55ZvgegkHF6sovo0tUI7AYtieWq2NdgVjJbkNT3rDxirjqSC0q3kyu6SZNjrqwv5VBGFb-5L0ratrw=w1280" alt="High-fidelity login page made in Figma" loading="lazy">
+          <img src="img/lms-login.png" alt="High-fidelity login page made in Figma" loading="lazy">
           <figcaption><b>Figma · high fidelity</b>Login — single sign-on removes the second password, which matters most for crew with intermittent connectivity.</figcaption>
         </figure>
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWFvTthBXwyglwz-7vhOIs5yWy-soJRyhZ17iRSi3qXPrD6ca-mKmheFCDYJx1fRtE1gB0x7_o71fUcYx0Yk2MY0C3Nr_HUs4Knn0h4iLg0FiHYXRd39h1zVSeOdQu7OLDd9Jd6j0ADtBsceZhwyrZsVh1-uTTHjxCGc87NY7phxr-Xd8IRRJvYzadI_RuctXcQO4cRZkm-6R3TSARywQEknGPXrn3bnmdq_bernWg=w1280" alt="Evaluation form in the running application" loading="lazy">
+          <img src="img/lms-evaluation-web.png" alt="Evaluation form in the running application" loading="lazy">
           <figcaption><b>Shipped · web</b>Evaluation form in the running application — the design as it actually behaves, not as it looked in the file.</figcaption>
         </figure>
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQU8Y3vWc0M_BbPGpARVUT8r0UvwlCPN325b1IB80QiwQXAnnmcUUgt3L2HtLZXwLoGqHzrA28U5wGy9D1Jhq4rGGCBrgsGO6WbYPHLHuOK_INfAJg95vb2imU9znkcawbJL8qCnNaROa9VCnDxRE8IIRKaJhcZWadon2nayTfC54OGPcBLL17adzZRAJKZPeMGEX_Uj64HHQNvn6GKj6RsH_LVy0N005TLpNTJSnd8=w1280" alt="Evaluation form on mobile" loading="lazy">
+          <img src="img/lms-evaluation-mobile.png" alt="Evaluation form on mobile" loading="lazy">
           <figcaption><b>Shipped · mobile</b>The same form on a phone — one question in view at a time, so a long assessment survives a bad connection.</figcaption>
         </figure>
         <figure>
-          <!-- SWAP -->
-          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUVbTx26hFKrVsEF9C-qdW3shZU5tFaIGPX7BH8v-KVnzCPB235JR6n9ptuGWJi0olko-aBneD8OQ6J6T8iNp1ihTHjCNHDXqYSUjUpPgSWplTkN9VEVofOs9y6YOP79EWxsUGi-LlX1aCZkU4yhkCiJncRLQNTv9KjK9Wlb6aVoUdDb9Gd5IN6blldJwCF68Ge3L1aGTwXq8HL96XOOPSDxDaB7N4JahZj6Dq7_P8=w1280" alt="Section and score view on mobile" loading="lazy">
+          <img src="img/lms-score-mobile.png" alt="Section and score view on mobile" loading="lazy">
           <figcaption><b>Shipped · mobile</b>Section and score — progress and result in one view, so a trainee always knows where they stand.</figcaption>
         </figure>
       </div>
@@ -437,7 +432,6 @@ details.deep li::marker{color:var(--brass)}
             <li><b>Office-side enrolment.</b> Administrators enrol crew centrally, against the same person records the HR platform already holds.</li>
             <li><b>Vessel-side enrolment.</b> On board, enrolment has to work with what the vessel knows locally and reconcile later — a different problem from the office case, and treated as one.</li>
           </ul>
-          <p><span class="todo">Optional: name the business reason this existed — what the company could sell or stop paying for once training lived inside the platform.</span></p>
         </div>
       </details>
     </article>
@@ -548,7 +542,7 @@ details.deep li::marker{color:var(--brass)}
     <div class="section-head reveal">
       <p class="eyebrow">Publications</p>
       <h2>Four peer-reviewed papers</h2>
-      <p class="measure" style="color:#B8C2BD">Computer vision, conceptual modelling, and software engineering — the research side of how I think about systems.</p>
+      <p class="measure" style="color:var(--muted)">Computer vision, conceptual modelling, and software engineering — the research side of how I think about systems.</p>
     </div>
     <div class="pubs reveal">
       <div class="pub">
@@ -638,7 +632,7 @@ details.deep li::marker{color:var(--brass)}
   </div>
 </section>
 
-<section class="band band--ink contact" id="contact">
+<section class="band band--panel contact" id="contact">
   <div class="shell">
     <div class="contact-grid reveal">
       <div>
