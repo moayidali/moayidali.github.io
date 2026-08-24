@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Moayid Ali Zaidi — UX &amp; System Designer</title>
+<meta name="description" content="UX and system designer at Adonis, designing maritime HR and crew-training systems. Four peer-reviewed papers in computer vision and software engineering.">
+
+<!-- ============================================================
+     BEFORE YOU DEPLOY — three things to change
+     ------------------------------------------------------------
+     1. og:url and og:image below — once you know your real URL, put it in
+        both (og:image needs the full absolute URL, e.g.
+        https://yoursite.pages.dev/og-cover.png, or LinkedIn won't show
+        the preview card).
+     2. cv.pdf — drop your CV into this folder with that exact name.
+     3. Images currently load from your Google Site (the lh3.googleusercontent
+        URLs). They work today, but those links can break if you edit or
+        delete the images in Sites. When you have a spare ten minutes, save
+        your originals into an /img folder here and swap each src.
+        Every one is marked with a SWAP comment in the markup below.
+     ============================================================ -->
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moayid Ali Zaidi — UX &amp; System Designer">
+<meta property="og:description" content="I design the systems behind maritime HR and crew training — from workflow logic to the screens people use at sea.">
+<meta property="og:image" content="og-cover.png">
+<meta property="og:url" content="https://example.pages.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#16262E">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="favicon-512.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+:root{
+  --ink:#16262E;
+  --ink-soft:#1C2E35;
+  --sea:#1D4E4A;
+  --brass:#7A5D15;
+  --brass-bright:#D2A63C;
+  --paper:#EFF1EE;
+  --panel:#E1E5E1;
+  --muted:#54615C;
+  --rule:#C9D0CB;
+  --rule-dark:#2B3F47;
+  --sans:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --serif:Spectral,"Source Serif 4",Georgia,serif;
+  --measure:66ch;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--sans);margin:0;text-wrap:balance}
+p,ul,ol{margin:0}
+a{color:var(--brass);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--sea)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+img{max-width:100%;display:block}
+
+.shell{max-width:1080px;margin:0 auto;padding:0 28px}
+.band{padding:88px 0}
+.band--panel{background:var(--panel)}
+.band--ink{background:var(--ink);color:var(--paper)}
+.band--ink a{color:var(--brass-bright)}
+.band--ink h2{color:var(--paper)}
+
+.eyebrow{
+  font-family:var(--sans);font-weight:600;font-size:11.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brass);
+}
+.band--ink .eyebrow{color:var(--brass-bright)}
+h2{font-size:clamp(24px,3.4vw,32px);line-height:1.12;letter-spacing:-.015em;font-weight:700;color:var(--sea)}
+h3{font-size:clamp(19px,2.4vw,23px);line-height:1.2;letter-spacing:-.01em;font-weight:700;color:var(--sea)}
+.band--ink h3{color:var(--paper)}
+h4{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.measure{max-width:var(--measure)}
+.section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:20;background:rgba(22,38,46,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--rule-dark);
+}
+.nav .shell{display:flex;align-items:center;gap:28px;height:60px}
+.nav .mark{
+  font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.06em;
+  color:var(--brass-bright);text-decoration:none;margin-right:auto;
+}
+.nav a.item{
+  font-family:var(--sans);font-size:13.5px;font-weight:500;letter-spacing:.02em;
+  color:#B8C2BD;text-decoration:none;
+}
+.nav a.item:hover{color:var(--paper)}
+@media (max-width:720px){
+  .nav .shell{gap:16px;overflow-x:auto;height:56px}
+  .nav a.item{white-space:nowrap;font-size:13px}
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 82% 108%, rgba(29,78,74,.55), transparent 58%),
+    repeating-linear-gradient(0deg, rgba(239,241,238,.045) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba(239,241,238,.045) 0 1px, transparent 1px 40px);
+}
+.hero .shell{position:relative;z-index:1;padding-top:84px;padding-bottom:84px}
+.hero-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:56px;align-items:center}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+.hero h1{
+  font-size:clamp(34px,6.2vw,58px);line-height:1.02;letter-spacing:-.025em;
+  font-weight:700;color:var(--paper);margin-bottom:22px;
+}
+.hero .thesis{font-size:clamp(18px,2.2vw,22px);line-height:1.45;max-width:34ch;color:#D8DED9}
+.hero .rule{width:110px;height:3px;background:var(--brass-bright);margin:26px 0}
+.hero .facts{
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.04em;color:#9EACA6;
+  display:flex;flex-wrap:wrap;gap:6px 20px;margin-bottom:30px;
+}
+.portrait{
+  border:1px solid var(--rule-dark);padding:9px;background:rgba(239,241,238,.04);
+}
+.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:.04em;
+  padding:12px 22px;text-decoration:none;border:1.5px solid transparent;transition:.15s ease;
+}
+.btn--solid{background:var(--brass-bright);color:var(--ink)}
+.btn--solid:hover{background:#E4BC5F;color:var(--ink)}
+.btn--ghost{border-color:#54615C;color:var(--paper)}
+.btn--ghost:hover{border-color:var(--brass-bright);color:var(--brass-bright)}
+.btn--dark{background:var(--sea);color:#fff}
+.btn--dark:hover{background:#256158;color:#fff}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1fr 1.5fr;gap:48px}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:20px}}
+.about p+p{margin-top:14px}
+
+/* ---------- case studies ---------- */
+.case{display:flex;flex-direction:column;gap:26px}
+.case + .case{margin-top:76px;padding-top:76px;border-top:1px solid var(--rule)}
+.band--panel .case + .case{border-color:#CFD5CF}
+.case-meta{
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);
+}
+.pao{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+@media (max-width:780px){.pao{grid-template-columns:1fr}}
+.pao > div{background:var(--paper);padding:20px 22px;display:flex;flex-direction:column;gap:9px}
+.band--panel .pao{background:#CFD5CF}
+.band--panel .pao > div{background:var(--panel)}
+.pao p{font-size:15.5px;line-height:1.55}
+.todo{
+  background:rgba(122,93,21,.12);border-bottom:1.5px solid var(--brass);
+  padding:1px 5px;font-style:italic;
+}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+figure{margin:0;display:flex;flex-direction:column;gap:10px}
+figure img{border:1px solid var(--rule);background:#fff}
+figcaption{font-size:14px;line-height:1.45;color:var(--muted)}
+figcaption b{
+  display:block;font-family:var(--sans);font-size:10.5px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--brass);margin-bottom:3px;
+}
+
+details.deep{border-top:1px solid var(--rule);padding-top:16px}
+.band--panel details.deep{border-color:#CFD5CF}
+details.deep summary{
+  cursor:pointer;list-style:none;font-family:var(--sans);font-size:14px;font-weight:600;
+  color:var(--sea);display:flex;gap:10px;align-items:baseline;
+}
+details.deep summary::-webkit-details-marker{display:none}
+details.deep summary::before{content:"+";color:var(--brass);font-weight:700;font-size:16px;line-height:1}
+details.deep[open] summary::before{content:"–"}
+details.deep .inner{padding-top:16px;display:flex;flex-direction:column;gap:12px;max-width:var(--measure)}
+details.deep ul{padding-left:1.15em;display:flex;flex-direction:column;gap:7px;font-size:16px}
+details.deep li::marker{color:var(--brass)}
+
+/* ---------- small project cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{border:1px solid var(--rule);padding:22px;display:flex;flex-direction:column;gap:8px;background:var(--paper)}
+.band--panel .card{background:var(--panel);border-color:#CFD5CF}
+.card .yr{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.12em;color:var(--brass)}
+.card h3{font-size:17.5px;line-height:1.25}
+.card p{font-size:15px;line-height:1.5;color:var(--muted)}
+
+/* ---------- timeline ---------- */
+.roles{display:flex;flex-direction:column}
+.role{
+  display:grid;grid-template-columns:150px 1fr;gap:28px;
+  padding:26px 0;border-top:1px solid var(--rule);
+}
+.role:first-child{border-top:none;padding-top:0}
+@media (max-width:720px){.role{grid-template-columns:1fr;gap:8px}}
+.role .when{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.08em;color:var(--brass);padding-top:4px}
+.role .what{display:flex;flex-direction:column;gap:10px}
+.role .org{font-family:var(--sans);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.role ul{padding-left:1.1em;display:flex;flex-direction:column;gap:6px;font-size:16px;max-width:var(--measure)}
+.role li::marker{color:var(--rule)}
+.role p{font-size:16px;color:var(--muted);max-width:var(--measure)}
+.tools{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;
+}
+.tools span{
+  font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--rule);padding:4px 10px;color:var(--muted);
+}
+
+/* ---------- publications ---------- */
+.pubs{display:flex;flex-direction:column}
+.pub{
+  display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:baseline;
+  padding:22px 0;border-top:1px solid var(--rule-dark);
+}
+.pub:first-child{border-top:none;padding-top:0}
+@media (max-width:780px){.pub{grid-template-columns:1fr;gap:8px}}
+.pub .yr{font-family:var(--sans);font-size:20px;font-weight:700;color:var(--brass-bright);font-variant-numeric:tabular-nums}
+.pub h3{font-size:18px;line-height:1.3;font-weight:600;max-width:52ch}
+.pub .venue{font-size:14.5px;color:#9EACA6;margin-top:5px}
+.pub .go{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.06em;white-space:nowrap}
+
+/* ---------- two-up: education / certs ---------- */
+.twoup{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+@media (max-width:820px){.twoup{grid-template-columns:1fr;gap:48px}}
+.entry{padding:18px 0;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:none;padding-top:0}
+.entry .yr{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.1em;color:var(--brass)}
+.entry h3{font-size:17.5px;line-height:1.25;margin:4px 0 3px}
+.entry .org{font-size:15px;color:var(--muted)}
+.entry .diss{font-size:15px;color:var(--muted);margin-top:7px;font-style:italic}
+.certs{display:flex;flex-direction:column}
+.cert{padding:13px 0;border-top:1px solid var(--rule);display:flex;flex-direction:column;gap:2px}
+.cert:first-child{border-top:none;padding-top:0}
+.cert .name{font-size:16px}
+.cert .by{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:end}
+@media (max-width:820px){.contact-grid{grid-template-columns:1fr;gap:32px}}
+.contact h2{font-size:clamp(26px,4vw,40px);color:var(--paper);letter-spacing:-.02em}
+.contact .lines{display:flex;flex-direction:column;gap:12px;font-family:var(--sans);font-size:15px}
+.contact .lines a{text-decoration:none;border-bottom:1px solid rgba(210,166,60,.4);padding-bottom:2px;width:fit-content}
+.foot{
+  border-top:1px solid var(--rule-dark);margin-top:64px;padding-top:22px;
+  font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:#7E8C86;
+  display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="shell">
+    <a class="mark" href="#top">MZ</a>
+    <a class="item" href="#work">Work</a>
+    <a class="item" href="#experience">Experience</a>
+    <a class="item" href="#publications">Publications</a>
+    <a class="item" href="#background">Background</a>
+    <a class="item" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="shell">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">UX &amp; system designer · Oslo, Norway</p>
+        <h1>Moayid Ali Zaidi</h1>
+        <p class="thesis">I design the systems behind maritime HR and crew training — from the workflow logic down to the screens people use at sea.</p>
+        <div class="rule"></div>
+        <div class="facts">
+          <span>Adonis · since 2021</span>
+          <span>MSc Applied Computer Science (AI)</span>
+          <span>4 peer-reviewed papers</span>
+        </div>
+        <div class="btns">
+          <a class="btn btn--solid" href="#work">See selected work</a>
+          <!-- SWAP: drop your CV into this folder as cv.pdf -->
+          <a class="btn btn--ghost" href="cv.pdf">Download CV</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <!-- SWAP: replace with your own file, e.g. img/portrait.jpg -->
+        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUlvGHxNhnrJpTPr7J30vkgAO0_eiQRbI7DExNHEEpQL7vBXfJ5VUerlL5BchEDqPf-TKq3vhVTp35lidl_viOmO22r2949e9YjpY7DN6yad29uAa1X4cb4uN5KtJKYKkE8NnTUOe3XNU4fRMJADcLmX3imy4cmMH7VRL251CTb40-VDvBRKT6LJHSKmuDWg33sVEsYkCNJ5ttjE0mF8LFz7v91Gn14R9uZgQPw=w1280" alt="Moayid Ali Zaidi" width="640" height="800">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <div class="shell about reveal">
+    <div>
+      <p class="eyebrow">In short</p>
+    </div>
+    <div class="measure">
+      <p>I'm a UX and system designer with four years on a B2B platform used to run HR and training for maritime crews. I own the design end to end: sitting with customers to understand how a process actually works, mapping the logic, prototyping in Figma and Balsamiq, and staying with it through development in an agile team until it ships.</p>
+      <p>Before design I worked in machine learning and computer vision — autonomous UAV inspection of power lines, conceptual modelling, code-smell detection — which is why I'm comfortable specifying systems, not just screens.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--panel" id="work">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow">Selected work</p>
+      <h2>Two systems I designed end to end</h2>
+      <p class="measure">Both are integration problems: two systems that had to agree with each other without anyone re-typing data in between. The summary is up front; the technical detail is one click down.</p>
+    </div>
+
+    <article class="case reveal">
+      <div>
+        <p class="case-meta">System designer · Adonis · <span class="todo">year</span></p>
+        <h3>Employee data replication between the HR core and external systems</h3>
+      </div>
+      <div class="pao">
+        <div>
+          <h4>Problem</h4>
+          <p>Employee records lived in two systems at once, so every change had to be re-entered by hand — and the drift was usually discovered downstream, by payroll.</p>
+        </div>
+        <div>
+          <h4>What I did</h4>
+          <p>Designed a two-stage replication flow: validate into staging tables before anything is written, then a controlled write-back to the external system. Mapped every branch — create a new person versus update an existing employee, documents, activity records — so developers had one unambiguous spec instead of a conversation.</p>
+        </div>
+        <div>
+          <h4>Outcome</h4>
+          <p><span class="todo">Add the numbers here — sync time before and after, manual re-entry eliminated, error or ticket reduction. A rough honest figure beats none.</span></p>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVHLx4tCfavwZT2lWjhwYotUwP5hL8OkPO716CChAQP3cuoMpeZAXWoEyJqCmJ7il6BCUtVAscnpdwc7yVW0UU3S8Dy1kSapVQqwTcAn9WdEoUpbc3lp1tF2LSYHw14R6yg3MwCIxnRiEtr902qs1D8IXdfDs0dadCt6_Nyl0v2M8neX3OEtzHREZOXTlVcpg2oXErKzqWG-N_ZBp3kYWSxzuraT9eRlM0p0bF6=w1280" alt="Low-fidelity dashboard wireframe made in Balsamiq" loading="lazy">
+          <figcaption><b>Balsamiq · low fidelity</b>Dashboard structure settled before any visual decisions — what an HR administrator needs on first load.</figcaption>
+        </figure>
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXJjCFBBtjMklupDnb0viJ6hJQcebdvR78u2t5L-NvD_z7I0oFuhoDh2YyelPXscTWI0Q-gdKiZ1IRqFAad-fFKdNWbnGMAafmf8EDh_aqoGHIJdK3evO-TzghPmG6aPug00xTPBp5_fZ7sYcEb3-yyXE8t4cQv_4m-wYmM3NnFHNRFmIbNA6AMu8pWHCz9YLan2uvcsO6Kjq9yS8lOoriygMieHVwuLUAC5g7V=w1280" alt="Low-fidelity mobile layout made in Balsamiq" loading="lazy">
+          <figcaption><b>Balsamiq · low fidelity</b>The same information re-ordered for a phone, where a crew member has one column and poor connectivity.</figcaption>
+        </figure>
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWiY0Lad1puZPX6EzuUbrUPkjqcnuDxbanBRphgnSjjGdo9lY-o-fridAbc9Nt9Q99XL6s8TboEYiPW6hnnzrmZdVcrPl9og5NErSMbGn7aGe0IgNvDb0jGwJ7MHkRwSmjkjloSOWTy6NYZ_zs-et81CMl45Y4orxc8sk_nio53UgoN1CxFkV5cLz4HSskP33qRZtBl1nczllg-dD1Pvj6AAUazVZHkad83G1HDFKE=w1280" alt="High-fidelity user list and details screen made in Figma" loading="lazy">
+          <figcaption><b>Figma · high fidelity</b>User list and detail view — the same record shape the replication logic writes to, so the screen and the spec can't drift apart.</figcaption>
+        </figure>
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXCniPaWFxtM-RyrfpFTHOmlzvb3Nyu4NuWpT9tiUNw5hJxETP4ac2W1po9Y0mPUM1hCHCdR4dW5fcxdyC9X037HAXWCrYQJuO2LTfjht7xH05BjghBwWqhm8-Mttcj7okq5RCZE-zUIDUd2p6aUeVbvccibdjHf5wcrKCPwFGwaHDRC-T5mDHM-UPr3n0xp-n8iNgxokyTqGHlKirtXNfWIqjgN70i5wa1m5q5VfM=w1280" alt="High-fidelity personal details form made in Figma" loading="lazy">
+          <figcaption><b>Figma · high fidelity</b>Personal details form, grouped so the fields that trigger a write-back sit together rather than scattered down the page.</figcaption>
+        </figure>
+      </div>
+
+      <details class="deep">
+        <summary>How the sync works, step by step</summary>
+        <div class="inner">
+          <p>The flow runs in two stages, in both directions, so that nothing is written to a live record until it has been validated in isolation.</p>
+          <ul>
+            <li><b>Stage one — inbound.</b> Incoming employee data is written to temporary staging tables and validated there. Nothing touches the internal system until the batch is clean.</li>
+            <li><b>Person records.</b> Where no matching person exists, one is created; where a match exists, the update is applied conditionally, field by field, rather than overwriting the record wholesale.</li>
+            <li><b>Documents and activities.</b> Attached documents and activity records are synchronised alongside the employee they belong to, so a record never lands half-complete.</li>
+            <li><b>Stage two — write-back.</b> Validated changes are replicated back to the external system in a controlled pass, which is what keeps the two systems in agreement instead of racing each other.</li>
+          </ul>
+          <p><span class="todo">Optional: add the one design decision you'd defend in an interview — a branch you deliberately made explicit, or a case you decided not to automate.</span></p>
+        </div>
+      </details>
+    </article>
+
+    <article class="case reveal">
+      <div>
+        <p class="case-meta">System designer · Adonis · <span class="todo">year</span></p>
+        <h3>Moodle integration for offshore crew training</h3>
+      </div>
+      <div class="pao">
+        <div>
+          <h4>Problem</h4>
+          <p>Crew training had to work both in an office and on a vessel with intermittent connectivity, across a web portal and a desktop application — and every extra login was a barrier for people at sea.</p>
+        </div>
+        <div>
+          <h4>What I did</h4>
+          <p>Designed an e-learning solution that joins Moodle to the existing platform: single sign-on so no one manages a second password, and a replicator that handles enrolment differently office-side and vessel-side because the two contexts genuinely differ.</p>
+        </div>
+        <div>
+          <h4>Outcome</h4>
+          <p><span class="todo">Add the numbers — vessels or crew onboarded, courses completed, support load before and after.</span></p>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVuEHurz-ObBZEaoqb70gc4MoItv8AEifUFRtjfM40nr7E9PObwrrKeyYdYFlmm37-ocBBGakcHBOWgp7L6BN8tCdZe7fZY07M8LH-IUt4XxYs2UMePae7ppUYbn4_do5UZeE35G6jQEkl5zWrQZmwlAWaYm55ZvgegkHF6sovo0tUI7AYtieWq2NdgVjJbkNT3rDxirjqSC0q3kyu6SZNjrqwv5VBGFb-5L0ratrw=w1280" alt="High-fidelity login page made in Figma" loading="lazy">
+          <figcaption><b>Figma · high fidelity</b>Login — single sign-on removes the second password, which matters most for crew with intermittent connectivity.</figcaption>
+        </figure>
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWFvTthBXwyglwz-7vhOIs5yWy-soJRyhZ17iRSi3qXPrD6ca-mKmheFCDYJx1fRtE1gB0x7_o71fUcYx0Yk2MY0C3Nr_HUs4Knn0h4iLg0FiHYXRd39h1zVSeOdQu7OLDd9Jd6j0ADtBsceZhwyrZsVh1-uTTHjxCGc87NY7phxr-Xd8IRRJvYzadI_RuctXcQO4cRZkm-6R3TSARywQEknGPXrn3bnmdq_bernWg=w1280" alt="Evaluation form in the running application" loading="lazy">
+          <figcaption><b>Shipped · web</b>Evaluation form in the running application — the design as it actually behaves, not as it looked in the file.</figcaption>
+        </figure>
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQU8Y3vWc0M_BbPGpARVUT8r0UvwlCPN325b1IB80QiwQXAnnmcUUgt3L2HtLZXwLoGqHzrA28U5wGy9D1Jhq4rGGCBrgsGO6WbYPHLHuOK_INfAJg95vb2imU9znkcawbJL8qCnNaROa9VCnDxRE8IIRKaJhcZWadon2nayTfC54OGPcBLL17adzZRAJKZPeMGEX_Uj64HHQNvn6GKj6RsH_LVy0N005TLpNTJSnd8=w1280" alt="Evaluation form on mobile" loading="lazy">
+          <figcaption><b>Shipped · mobile</b>The same form on a phone — one question in view at a time, so a long assessment survives a bad connection.</figcaption>
+        </figure>
+        <figure>
+          <!-- SWAP -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQUVbTx26hFKrVsEF9C-qdW3shZU5tFaIGPX7BH8v-KVnzCPB235JR6n9ptuGWJi0olko-aBneD8OQ6J6T8iNp1ihTHjCNHDXqYSUjUpPgSWplTkN9VEVofOs9y6YOP79EWxsUGi-LlX1aCZkU4yhkCiJncRLQNTv9KjK9Wlb6aVoUdDb9Gd5IN6blldJwCF68Ge3L1aGTwXq8HL96XOOPSDxDaB7N4JahZj6Dq7_P8=w1280" alt="Section and score view on mobile" loading="lazy">
+          <figcaption><b>Shipped · mobile</b>Section and score — progress and result in one view, so a trainee always knows where they stand.</figcaption>
+        </figure>
+      </div>
+
+      <details class="deep">
+        <summary>Integration architecture and enrolment logic</summary>
+        <div class="inner">
+          <ul>
+            <li><b>Single sign-on.</b> Authentication runs through Moodle's <code>auth_userkey</code> plugin, so a user already signed into the platform lands in the learning environment without a second set of credentials.</li>
+            <li><b>Two front ends.</b> The solution spans a web portal and a desktop application, with the mobile web experience designed for people completing assessments away from a desk.</li>
+            <li><b>Office-side enrolment.</b> Administrators enrol crew centrally, against the same person records the HR platform already holds.</li>
+            <li><b>Vessel-side enrolment.</b> On board, enrolment has to work with what the vessel knows locally and reconcile later — a different problem from the office case, and treated as one.</li>
+          </ul>
+          <p><span class="todo">Optional: name the business reason this existed — what the company could sell or stop paying for once training lived inside the platform.</span></p>
+        </div>
+      </details>
+    </article>
+  </div>
+</section>
+
+<section class="band">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow">Also built</p>
+      <h2>Earlier work, briefly</h2>
+    </div>
+    <div class="cards reveal">
+      <div class="card">
+        <span class="yr">2019 · MSc</span>
+        <h3>Autonomous UAV power line inspection</h3>
+        <p>Deep-learning system for inspecting power lines from autonomous drones, with data acquisition in a simulated environment. Published in 2023.</p>
+        <p><a href="https://ojs.southfloridapublishing.com/ojs/index.php/jdev/article/view/2586">Read the paper →</a></p>
+      </div>
+      <div class="card">
+        <span class="yr">2019</span>
+        <h3>Electric grid stability analysis</h3>
+        <p>Machine-learning models for predicting stability in electrical grid data, built at eSmart Systems alongside the UAV work.</p>
+      </div>
+      <div class="card">
+        <span class="yr">2017</span>
+        <h3>Sanitarium System</h3>
+        <p>Web-based hospital management system covering reporting, billing and invoicing — my BSc dissertation project.</p>
+      </div>
+      <div class="card">
+        <span class="yr">Freelance</span>
+        <h3>WordPress CMS builds</h3>
+        <p>Client websites built and maintained on WordPress, from content structure through to launch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--panel" id="experience">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow">Experience</p>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="roles reveal">
+      <div class="role">
+        <div class="when">2021 — now</div>
+        <div class="what">
+          <div>
+            <h3>System designer</h3>
+            <p class="org">Adonis · Oslo, Norway</p>
+          </div>
+          <ul>
+            <li>Lead UX and UI design for a B2B maritime HR and crew-training platform, owning system and product design end to end.</li>
+            <li>Work directly with customers and developers to turn complex operational workflows into interfaces people can complete without training.</li>
+            <li>Prototype in Figma and Balsamiq, run user testing, and feed what it surfaces back into the specification.</li>
+            <li>Drive delivery with developers in an agile process on Jira, and hold design quality through to release.</li>
+          </ul>
+          <div class="tools"><span>Figma</span><span>Balsamiq</span><span>Jira</span><span>Design systems</span><span>User testing</span></div>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">2020</div>
+        <div class="what">
+          <div>
+            <h3>Research assistant</h3>
+            <p class="org">Saarland University · Germany</p>
+          </div>
+          <p>Machine learning and conceptual modelling, including analytical tooling for health systems. Work from this period became two published papers.</p>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">2019</div>
+        <div class="what">
+          <div>
+            <h3>Software developer</h3>
+            <p class="org">eSmart Systems AS · Norway</p>
+          </div>
+          <p>Deep-learning systems for autonomous UAV inspection of power lines, and machine-learning analysis of electric grid stability.</p>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">2019 &amp; 2021</div>
+        <div class="what">
+          <div>
+            <h3>Teaching assistant</h3>
+            <p class="org">Østfold University College · OsloMet</p>
+          </div>
+          <p>Software engineering and testing at Østfold; coursework support and assignment review at OsloMet.</p>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">2017 — 2018</div>
+        <div class="what">
+          <div>
+            <h3>Tech engineering support officer</h3>
+            <p class="org">Star Tech Engineering</p>
+          </div>
+          <p>Network diagnostics, Active Directory administration, and remote hardware and software troubleshooting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--ink" id="publications">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow">Publications</p>
+      <h2>Four peer-reviewed papers</h2>
+      <p class="measure" style="color:#B8C2BD">Computer vision, conceptual modelling, and software engineering — the research side of how I think about systems.</p>
+    </div>
+    <div class="pubs reveal">
+      <div class="pub">
+        <span class="yr">2023</span>
+        <div>
+          <h3>Revolutionizing power line inspection: automated data acquisition through autonomous UAVs in simulated environment</h3>
+          <p class="venue">South Florida Journal of Development</p>
+        </div>
+        <a class="go" href="https://ojs.southfloridapublishing.com/ojs/index.php/jdev/article/view/2586">Read →</a>
+      </div>
+      <div class="pub">
+        <span class="yr">2022</span>
+        <div>
+          <h3>Zero-Shot Learning-Based Detection of Electric Insulators in the Wild</h3>
+          <p class="venue">Springer</p>
+        </div>
+        <a class="go" href="https://link.springer.com/chapter/10.1007/978-3-030-95470-3_16">Read →</a>
+      </div>
+      <div class="pub">
+        <span class="yr">2021</span>
+        <div>
+          <h3>Conceptual Modeling Interacts with Machine Learning — A Systematic Literature Review</h3>
+          <p class="venue">Lecture Notes in Computer Science, vol 12957 · Springer, Cham</p>
+        </div>
+        <a class="go" href="https://link.springer.com/chapter/10.1007/978-3-030-87013-3_39">Read →</a>
+      </div>
+      <div class="pub">
+        <span class="yr">2019</span>
+        <div>
+          <h3>Code Smells Enabled by Artificial Intelligence: A Systematic Mapping</h3>
+          <p class="venue">Springer International Publishing</p>
+        </div>
+        <a class="go" href="https://link.springer.com/chapter/10.1007/978-3-030-24305-0_31">Read →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="background">
+  <div class="shell twoup reveal">
+    <div>
+      <div class="section-head" style="margin-bottom:28px">
+        <p class="eyebrow">Education</p>
+        <h2>Studied</h2>
+      </div>
+      <div class="entry">
+        <span class="yr">2018 — 2020</span>
+        <h3>MSc, Applied Computer Science (AI)</h3>
+        <p class="org">Høgskolen i Østfold, Norway</p>
+        <p class="diss">Dissertation: automatic data acquisition for power line inspection using autonomous UAVs in a simulated environment, built with deep-learning models and Unreal Engine.</p>
+      </div>
+      <div class="entry">
+        <span class="yr">2013 — 2017</span>
+        <h3>BSc, Computer Science</h3>
+        <p class="org">Government College University, Lahore</p>
+        <p class="diss">Dissertation: Sanitarium System, a web-based hospital management system.</p>
+      </div>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:28px">
+        <p class="eyebrow">Certification</p>
+        <h2>Certified</h2>
+      </div>
+      <div class="certs">
+        <div class="cert">
+          <span class="name">Protecting Human Research Participants</span>
+          <span class="by">National Institutes of Health</span>
+        </div>
+        <div class="cert">
+          <span class="name">Deep Learning with TensorFlow 2.0</span>
+          <span class="by">365 Data Science</span>
+        </div>
+        <div class="cert">
+          <span class="name">Introduction to Data and Data Science</span>
+          <span class="by">365 Data Science</span>
+        </div>
+        <div class="cert">
+          <span class="name">SQL + Tableau</span>
+          <span class="by">365 Data Science</span>
+        </div>
+        <div class="cert">
+          <span class="name">Introduction to R Programming</span>
+          <span class="by">365 Data Science</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--ink contact" id="contact">
+  <div class="shell">
+    <div class="contact-grid reveal">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Open to conversations about design, systems, and everything between them.</h2>
+      </div>
+      <div class="lines">
+        <a href="mailto:moayidali@gmail.com">moayidali@gmail.com</a>
+        <a href="https://www.linkedin.com/in/moayid-ali-zaidi-38433395/">LinkedIn</a>
+        <!-- SWAP: drop your CV into this folder as cv.pdf -->
+        <a href="cv.pdf">Curriculum vitae (PDF)</a>
+      </div>
+    </div>
+    <div class="foot">
+      <span>© <span id="yr">2026</span> Moayid Ali Zaidi</span>
+      <span>Designed and built in Oslo</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var y=document.getElementById('yr');
+  if(y){y.textContent=new Date().getFullYear();}
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('in');});
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.06});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
