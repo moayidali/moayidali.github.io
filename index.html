@@ -13,7 +13,8 @@
      IMAGES: all nine live in the img/ folder next to this file.
        Replace each placeholder with your own file, keeping the SAME
        filename and extension, and nothing here needs editing.
-     CV: drop your CV in beside this file, named exactly cv.pdf
+     CV: the buttons point at CV.pdf (capital letters — that is the
+       filename already in your repo). Paths are case-sensitive.
      OUTCOMES: search for "ADD YOUR OUTCOME" — two commented blocks are
        ready for the numbers behind each case study.
      ============================================================ -->
@@ -156,6 +157,8 @@ h4{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
   text-transform:uppercase;color:var(--muted);
 }
 .pao{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule)}
+.pao--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.pao--3{grid-template-columns:1fr}}
 @media (max-width:780px){.pao{grid-template-columns:1fr}}
 .pao > div{background:var(--paper);padding:20px 22px;display:flex;flex-direction:column;gap:9px}
 .band--panel .pao{background:#CDD5CE}
@@ -258,6 +261,30 @@ details.deep li::marker{color:var(--brass)}
   display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
 }
 
+/* ---------- system diagram ---------- */
+.sysfig{display:flex;flex-direction:column;gap:16px;margin:8px 0 4px}
+.sysfig-head{display:flex;flex-direction:column;gap:4px}
+.sysfig-head h4{color:var(--brass)}
+.sysfig-head p{font-size:15px;color:var(--muted)}
+.sysfig-stage{
+  position:relative;background:var(--card);border:1px solid var(--rule);
+  height:430px;overflow:hidden;touch-action:pan-y;
+}
+@media (max-width:700px){.sysfig-stage{height:330px}}
+.sysfig-stage canvas{display:block;width:100%;height:100%;cursor:grab}
+.sysfig-stage canvas.dragging{cursor:grabbing}
+.sysfig-fallback{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;color:var(--muted)}
+.sysfig-fallback[hidden]{display:none}
+.sysfig-controls{display:flex;flex-wrap:wrap;gap:8px}
+.sysbtn{
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.06em;
+  background:transparent;border:1px solid var(--rule);color:var(--muted);
+  padding:8px 13px;cursor:pointer;transition:.14s ease;
+}
+.sysbtn:hover{border-color:var(--brass);color:var(--brass)}
+.sysbtn.is-on{background:var(--sea);border-color:var(--sea);color:#fff}
+.sysfig-caption{font-size:15.5px;color:var(--ink);max-width:60ch;min-height:3em}
+
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
@@ -281,13 +308,13 @@ details.deep li::marker{color:var(--brass)}
   <div class="shell">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">UX &amp; System designer , Norway</p>
+        <p class="eyebrow">UX &amp; system designer · Kristiansand, Norway</p>
         <h1>Moayid Ali Zaidi</h1>
-        <p class="thesis">I design the systems behind maritime HR and crew training from the workflow logic down to the user level.</p>
+        <p class="thesis">I design the systems behind maritime HR and crew training — from the workflow logic down to the screens people use at sea.</p>
         <div class="rule"></div>
         <div class="facts">
           <span>Adonis · since 2021</span>
-          <span>MSc Applied Computer Science (AI)</span>
+          <span>English &amp; Norwegian</span>
           <span>4 peer-reviewed papers</span>
         </div>
         <div class="btns">
@@ -297,7 +324,7 @@ details.deep li::marker{color:var(--brass)}
         </div>
       </div>
       <div class="portrait">
-        <img src="img008.png" alt="Moayid Ali Zaidi" width="640" height="800">
+        <img src="img/portrait.jpg" alt="Moayid Ali Zaidi" width="640" height="800">
       </div>
     </div>
   </div>
@@ -309,8 +336,8 @@ details.deep li::marker{color:var(--brass)}
       <p class="eyebrow">In short</p>
     </div>
     <div class="measure">
-      <p>I'm a UX and system designer with almost 5 years of experience on a B2B platform, used to run HR and training for maritime crews. I own the whole design process: sitting with customers to understand how a process actually works, mapping the logic, prototyping in Figma and Balsamiq, and staying with it through development in an agile team until it ships.</p>
-      <p>Before design I worked in machine learning and computer vision, autonomous UAV inspection of power lines, conceptual modelling, code-smell detection using AI, which is why I'm comfortable specifying systems, not just screens.</p>
+      <p>I'm a UX and system designer with five years on a B2B platform used to run HR and training for maritime crews. I own the design end to end: sitting with customers to understand how a process actually works, mapping the logic, prototyping in Figma and Balsamiq, and staying with it through development in an agile team until it ships.</p>
+      <p>Before design I worked in machine learning and computer vision — autonomous UAV inspection of power lines, conceptual modelling, code-smell detection — which is why I'm comfortable specifying systems, not just screens.</p>
     </div>
   </div>
 </section>
@@ -319,7 +346,7 @@ details.deep li::marker{color:var(--brass)}
   <div class="shell">
     <div class="section-head reveal">
       <p class="eyebrow">Selected work</p>
-      <h2>Systems I designed end to end</h2>
+      <h2>Two systems I designed end to end</h2>
       <p class="measure">Both are integration problems: two systems that had to agree with each other without anyone re-typing data in between. The summary is up front; the technical detail is one click down.</p>
     </div>
 
@@ -347,6 +374,25 @@ details.deep li::marker{color:var(--brass)}
         </div>
         -->
       </div>
+
+<div class="sysfig reveal">
+  <div class="sysfig-head">
+    <h4>How the replication flow works</h4>
+    <p>Drag to rotate. Step through the stages to see what moves where.</p>
+  </div>
+  <div class="sysfig-stage">
+    <canvas id="sysCanvas" aria-hidden="true"></canvas>
+    <p class="sysfig-fallback" id="sysFallback" hidden>Interactive diagram unavailable — the four stages are listed below.</p>
+  </div>
+  <div class="sysfig-controls" role="group" aria-label="Replication stages">
+    <button type="button" class="sysbtn is-on" data-step="0">Whole flow</button>
+    <button type="button" class="sysbtn" data-step="1">1 · Validate</button>
+    <button type="button" class="sysbtn" data-step="2">2 · Create or update</button>
+    <button type="button" class="sysbtn" data-step="3">3 · Documents</button>
+    <button type="button" class="sysbtn" data-step="4">4 · Write back</button>
+  </div>
+  <p class="sysfig-caption" id="sysCaption">Two systems holding the same employee, kept in agreement without anyone re-typing anything.</p>
+</div>
 
       <div class="gallery">
         <figure>
@@ -386,10 +432,14 @@ details.deep li::marker{color:var(--brass)}
         <p class="case-meta">System designer · Adonis</p>
         <h3>Moodle integration for offshore crew training</h3>
       </div>
-      <div class="pao">
+      <div class="pao pao--3">
         <div>
           <h4>Problem</h4>
-          <p>Crew training had to work both in an office and on a vessel with intermittent connectivity, across a web portal and a desktop application — and every extra login was a barrier for people at sea.</p>
+          <p>Crew training had to reach people at sea, and every extra login was a barrier for someone on a vessel with intermittent connectivity.</p>
+        </div>
+        <div>
+          <h4>Constraint</h4>
+          <p>The same courses had to work across a web portal and a desktop application, enrolled centrally from an office but also on board, where the vessel only knows what it holds locally until it can reconcile.</p>
         </div>
         <div>
           <h4>What I did</h4>
@@ -434,6 +484,10 @@ details.deep li::marker{color:var(--brass)}
           </ul>
         </div>
       </details>
+      <!-- WORTH ADDING: one paragraph on the alternative you rejected — e.g. why
+           you did NOT simply give crew a separate Moodle account, or why vessel-side
+           enrolment reconciles later rather than blocking. Interviewers buy the
+           reasoning more than the result. -->
     </article>
   </div>
 </section>
@@ -456,17 +510,16 @@ details.deep li::marker{color:var(--brass)}
         <h3>Electric grid stability analysis</h3>
         <p>Machine-learning models for predicting stability in electrical grid data, built at eSmart Systems alongside the UAV work.</p>
       </div>
-     <div class="card">
-        <span class="yr">2019</span>
-        <h3>WordPress CMS builds</h3>
-        <p>Client websites built and maintained on WordPress, from content structure through to launch.</p>
-      </div>
       <div class="card">
         <span class="yr">2017</span>
         <h3>Sanitarium System</h3>
         <p>Web-based hospital management system covering reporting, billing and invoicing — my BSc dissertation project.</p>
       </div>
-
+      <div class="card">
+        <span class="yr">Freelance</span>
+        <h3>WordPress CMS builds</h3>
+        <p>Client websites built and maintained on WordPress, from content structure through to launch.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -483,7 +536,7 @@ details.deep li::marker{color:var(--brass)}
         <div class="what">
           <div>
             <h3>System designer</h3>
-            <p class="org">Adonis · Oslo, Norway</p>
+            <p class="org">Adonis · Kristiansand, Norway</p>
           </div>
           <ul>
             <li>Lead UX and UI design for a B2B maritime HR and crew-training platform, owning system and product design end to end.</li>
@@ -649,7 +702,7 @@ details.deep li::marker{color:var(--brass)}
     </div>
     <div class="foot">
       <span>© <span id="yr">2026</span> Moayid Ali Zaidi</span>
-      <span>Designed and built in Oslo</span>
+      <span>Designed and built in Kristiansand</span>
     </div>
   </div>
 </section>
@@ -669,6 +722,182 @@ details.deep li::marker{color:var(--brass)}
     });
   },{rootMargin:'0px 0px -8% 0px',threshold:0.06});
   els.forEach(function(e){io.observe(e);});
+})();
+</script>
+
+<script>
+(function(){
+  var cv=document.getElementById('sysCanvas'); if(!cv) return;
+  var ctx=null; try{ ctx=cv.getContext('2d'); }catch(e){}
+  if(!ctx){ cv.style.display='none'; document.getElementById('sysFallback').hidden=false; return; }
+
+  var REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var INK='#16262E', SEA='#1D4E4A', BRASS='#7A5D15', BRASSL='#C08F22',
+      RULE='#D2D9D3', MUTED='#54615C', CARD='#FFFFFF';
+
+  var nodes={
+    ext  :{p:[-5.2,0,0],   w:3.5,h:1.5, t:'External system',  t2:'External', s:'customer HR / payroll'},
+    stage:{p:[0,2.4,-0.5], w:3.6,h:1.4, t:'Staging tables',   t2:'Staging', s:'validate before writing'},
+    core :{p:[5.2,0,0],    w:3.5,h:1.6, t:'Adonis HR core',   t2:'HR core', s:'person + employee'},
+    docs :{p:[0,-2.5,0.9], w:3.6,h:1.4, t:'Documents',        t2:'Docs', s:'+ activity records'}
+  };
+  var edges=[
+    {s:1,a:'ext',  b:'stage',bow:[0,0.7,1.4],  l:'validate'},
+    {s:2,a:'stage',b:'core', bow:[0,0.7,1.4],  l:'create / update'},
+    {s:3,a:'core', b:'docs', bow:[0,-1.2,1.6], l:'attach'},
+    {s:4,a:'core', b:'ext',  bow:[0,5.2,-1.2], l:'write back'}
+  ];
+  var captions={
+    0:'Two systems holding the same employee, kept in agreement without anyone re-typing anything.',
+    1:'Incoming employee data lands in temporary staging tables and is validated there. Nothing touches a live record until the batch is clean.',
+    2:'Where no matching person exists, one is created. Where a match exists, the update is applied field by field rather than overwriting the record wholesale.',
+    3:'Attached documents and activity records travel with the person they belong to, so a record never lands half-complete.',
+    4:'Validated changes replicate back to the external system in a controlled pass — which is what keeps the two systems in agreement instead of racing each other.'
+  };
+
+  var step=0, yaw=-0.34, pitch=-0.26, targetYaw=-0.34, drag=false, lastX=0, idle=0, t0=0, W=0, H=0, dpr=1, U=26, NARROW=false;
+
+  function size(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    W=cv.clientWidth; H=cv.clientHeight;
+    cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    NARROW = W < 560;
+    U = Math.min((W-44)/14.4, (H-34)/7.6);
+  }
+
+  function proj(v){
+    var cy=Math.cos(yaw), sy=Math.sin(yaw);
+    var x=v[0]*cy+v[2]*sy, z=-v[0]*sy+v[2]*cy, y=v[1];
+    var cp=Math.cos(pitch), sp=Math.sin(pitch);
+    var y2=y*cp-z*sp, z2=y*sp+z*cp;
+    var f=17, k=f/(f+z2);
+    return {x:W/2+x*k*U, y:H*0.5-(y2+0.35)*k*U*0.92, k:k, z:z2};
+  }
+  function nodeCorners(n,dz){
+    var p=n.p, hw=n.w/2, hh=n.h/2, z=p[2]+(dz||0);
+    return [proj([p[0]-hw,p[1]+hh,z]),proj([p[0]+hw,p[1]+hh,z]),
+            proj([p[0]+hw,p[1]-hh,z]),proj([p[0]-hw,p[1]-hh,z])];
+  }
+  function poly(pts){ ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+    for(var i=1;i<pts.length;i++) ctx.lineTo(pts[i].x,pts[i].y); ctx.closePath(); }
+
+  function bez(e,t){
+    var A=nodes[e.a].p, B=nodes[e.b].p, C=[(A[0]+B[0])/2+e.bow[0],(A[1]+B[1])/2+e.bow[1],(A[2]+B[2])/2+e.bow[2]];
+    var m=1-t;
+    return [m*m*A[0]+2*m*t*C[0]+t*t*B[0], m*m*A[1]+2*m*t*C[1]+t*t*B[1], m*m*A[2]+2*m*t*C[2]+t*t*B[2]];
+  }
+
+  function draw(ts){
+    if(!t0) t0=ts||0;
+    var time=((ts||0)-t0)/1000;
+    if(!REDUCED && !drag){ idle++; if(idle>150) targetYaw+=0.0022; }
+    yaw+=(targetYaw-yaw)*0.09;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle=CARD; ctx.fillRect(0,0,W,H);
+
+    // ground grid
+    ctx.strokeStyle='rgba(22,38,46,0.055)'; ctx.lineWidth=1;
+    for(var g=-5;g<=5;g+=2){
+      var a=proj([g,-3.4,-5]), b=proj([g,-3.4,5]);
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+      var c=proj([-5,-3.4,g]), d=proj([5,-3.4,g]);
+      ctx.beginPath(); ctx.moveTo(c.x,c.y); ctx.lineTo(d.x,d.y); ctx.stroke();
+    }
+
+    // edges
+    edges.forEach(function(e){
+      var on = step===0 || step===e.s;
+      var pts=[]; for(var i=0;i<=26;i++) pts.push(proj(bez(e,i/26)));
+      ctx.lineWidth = on?2.4:1.2;
+      ctx.strokeStyle = on?BRASS:RULE;
+      ctx.globalAlpha = on?1:0.75;
+      ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+      for(var j=1;j<pts.length;j++) ctx.lineTo(pts[j].x,pts[j].y);
+      ctx.stroke(); ctx.globalAlpha=1;
+
+      // arrow head
+      if(on){
+        var p1=pts[pts.length-3], p2=pts[pts.length-1];
+        var ang=Math.atan2(p2.y-p1.y,p2.x-p1.x), s=7;
+        ctx.fillStyle=BRASS; ctx.beginPath();
+        ctx.moveTo(p2.x,p2.y);
+        ctx.lineTo(p2.x-s*Math.cos(ang-0.42),p2.y-s*Math.sin(ang-0.42));
+        ctx.lineTo(p2.x-s*Math.cos(ang+0.42),p2.y-s*Math.sin(ang+0.42));
+        ctx.closePath(); ctx.fill();
+      }
+      // travelling records
+      if(on && !REDUCED){
+        for(var k=0;k<3;k++){
+          var tt=((time*0.34)+k*0.33+e.s*0.11)%1;
+          var q=proj(bez(e,tt));
+          ctx.fillStyle=BRASSL; ctx.globalAlpha=0.95;
+          ctx.beginPath(); ctx.arc(q.x,q.y,3.1*q.k*1.05,0,6.284); ctx.fill();
+          ctx.globalAlpha=1;
+        }
+      }
+    });
+
+    // nodes, far to near
+    Object.keys(nodes).map(function(id){
+      var pr=proj(nodes[id].p); return {id:id,z:pr.z};
+    }).sort(function(a,b){return b.z-a.z;}).forEach(function(o){
+      var n=nodes[o.id];
+      var front=nodeCorners(n,0.16), back=nodeCorners(n,-0.16);
+      var active = step===0 || edges.some(function(e){return e.s===step&&(e.a===o.id||e.b===o.id);});
+      // extruded sides
+      ctx.fillStyle='rgba(22,38,46,0.10)';
+      [[0,1],[1,2],[2,3],[3,0]].forEach(function(pair){
+        poly([front[pair[0]],front[pair[1]],back[pair[1]],back[pair[0]]]); ctx.fill();
+      });
+      // face
+      poly(front);
+      ctx.fillStyle = active? 'rgba(29,78,74,0.10)' : 'rgba(22,38,46,0.035)';
+      ctx.fill();
+      ctx.lineWidth = active?1.8:1;
+      ctx.strokeStyle = active?SEA:RULE;
+      ctx.stroke();
+      // label, billboarded
+      var c=proj(n.p), sc=Math.max(0.82,Math.min(1.06,c.k));
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillStyle = active?INK:MUTED;
+      ctx.font='600 '+((NARROW?11.5:12.8)*sc).toFixed(1)+'px Archivo, Helvetica Neue, Arial, sans-serif';
+      ctx.fillText(NARROW?(n.t2||n.t):n.t, c.x, c.y+(NARROW?0:-7*sc));
+      if(!NARROW){
+        ctx.fillStyle=MUTED;
+        ctx.font=(11*sc).toFixed(1)+'px Archivo, Helvetica Neue, Arial, sans-serif';
+        ctx.fillText(n.s, c.x, c.y+9*sc);
+      }
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  function setStep(s){
+    step=s;
+    document.querySelectorAll('.sysbtn').forEach(function(b){
+      b.classList.toggle('is-on', +b.dataset.step===s);
+    });
+    document.getElementById('sysCaption').textContent=captions[s];
+  }
+  document.querySelectorAll('.sysbtn').forEach(function(b){
+    b.addEventListener('click',function(){ setStep(+b.dataset.step); idle=0; });
+  });
+
+  cv.addEventListener('pointerdown',function(e){
+    drag=true; lastX=e.clientX; idle=0; cv.classList.add('dragging');
+    if(cv.setPointerCapture) cv.setPointerCapture(e.pointerId);
+  });
+  cv.addEventListener('pointermove',function(e){
+    if(!drag) return; targetYaw+=(e.clientX-lastX)*0.008; lastX=e.clientX;
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+    cv.addEventListener(ev,function(){ drag=false; idle=0; cv.classList.remove('dragging'); });
+  });
+
+  window.addEventListener('resize',size);
+  size(); requestAnimationFrame(draw);
 })();
 </script>
 </body>
