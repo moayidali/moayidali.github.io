@@ -437,7 +437,24 @@ details.deep li::marker{color:var(--brass)}
         -->
       </div>
 
-      <div class="gallery">
+     
+
+
+         
+      <details class="deep">
+        <summary>Integration architecture and enrolment logic</summary>
+        <div class="inner">
+          <ul>
+            <li><b>Single sign-on.</b> Authentication runs through Moodle's <code>auth_userkey</code> plugin, so a user already signed into the platform lands in the learning environment without a second set of credentials.</li>
+            <li><b>Two front ends.</b> The solution spans a web portal and a desktop application, with the mobile web experience designed for people completing assessments away from a desk.</li>
+            <li><b>Office-side enrolment.</b> Administrators enrol crew centrally, against the same person records the HR platform already holds.</li>
+            <li><b>Vessel-side enrolment.</b> On board, enrolment has to work with what the vessel knows locally and reconcile later — a different problem from the office case, and treated as one.</li>
+          </ul>
+        </div>
+      </details>
+
+
+ <div class="gallery">
         <figure>
           <img src="img/lms-login.png" alt="High-fidelity login page made in Figma" loading="lazy">
           <figcaption><b>Figma · high fidelity</b>Login — single sign-on removes the second password, which matters most for crew with intermittent connectivity.</figcaption>
@@ -475,19 +492,7 @@ details.deep li::marker{color:var(--brass)}
         </figure>
     </div>
 
-
          
-      <details class="deep">
-        <summary>Integration architecture and enrolment logic</summary>
-        <div class="inner">
-          <ul>
-            <li><b>Single sign-on.</b> Authentication runs through Moodle's <code>auth_userkey</code> plugin, so a user already signed into the platform lands in the learning environment without a second set of credentials.</li>
-            <li><b>Two front ends.</b> The solution spans a web portal and a desktop application, with the mobile web experience designed for people completing assessments away from a desk.</li>
-            <li><b>Office-side enrolment.</b> Administrators enrol crew centrally, against the same person records the HR platform already holds.</li>
-            <li><b>Vessel-side enrolment.</b> On board, enrolment has to work with what the vessel knows locally and reconcile later — a different problem from the office case, and treated as one.</li>
-          </ul>
-        </div>
-      </details>
       <!-- WORTH ADDING: one paragraph on the alternative you rejected — e.g. why
            you did NOT simply give crew a separate Moodle account, or why vessel-side
            enrolment reconciles later rather than blocking. Interviewers buy the
