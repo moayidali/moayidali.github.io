@@ -19,20 +19,20 @@
 <script>try{var t=localStorage.getItem('mz-theme');if(t)document.documentElement.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <style>
 :root{
-  --bg:#f5f6fb; --bg2:#eef0f8; --card:rgba(255,255,255,.78); --card-solid:#fff; --ink:#0f1222; --ink2:#2b3145; --muted:#5d6479; --faint:#8a90a3;
-  --line:rgba(15,18,34,.08); --line2:rgba(15,18,34,.05); --grid:rgba(15,18,34,.045);
-  --a1:#5b7cfa; --a2:#9a6bff; --a3:#3cc6c0; --accent:#5b6cf0; --accent-ink:#3d4fd6; --soft:#eceffe;
+  --bg:#f3f7f6; --bg2:#e8f0ee; --card:rgba(255,255,255,.80); --card-solid:#fff; --ink:#0c1f24; --ink2:#23383d; --muted:#53686c; --faint:#839699;
+  --line:rgba(12,31,36,.09); --line2:rgba(12,31,36,.05); --grid:rgba(12,31,36,.045);
+  --a1:#0e7490; --a2:#0d9488; --a3:#f59e0b; --accent:#0e7490; --accent-ink:#0b5f75; --soft:#e2f1f0;
   --grad:linear-gradient(100deg,var(--a1),var(--a2) 55%,var(--a3));
-  --shadow:0 1px 2px rgba(15,18,34,.04),0 10px 30px rgba(40,50,110,.08);
-  --blob1:rgba(91,124,250,.28); --blob2:rgba(154,107,255,.24); --blob3:rgba(60,198,192,.18);
+  --shadow:0 1px 2px rgba(12,31,36,.04),0 10px 30px rgba(14,90,110,.09);
+  --blob1:rgba(14,116,144,.24); --blob2:rgba(20,184,166,.20); --blob3:rgba(245,158,11,.16);
   --r:20px;
 }
 [data-theme=dark]{
-  --bg:#0b0d17; --bg2:#10131f; --card:rgba(22,26,42,.72); --card-solid:#151a2b; --ink:#eef0f8; --ink2:#cfd3e3; --muted:#9aa1b8; --faint:#6e7590;
+  --bg:#071a1f; --bg2:#0b242a; --card:rgba(12,38,45,.72); --card-solid:#0e2a31; --ink:#ecf6f4; --ink2:#c9dcd9; --muted:#93aaa7; --faint:#6a8481;
   --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.05); --grid:rgba(255,255,255,.035);
-  --accent:#8b97ff; --accent-ink:#aab3ff; --soft:rgba(139,151,255,.12);
+  --a1:#22b8cf; --a2:#2dd4bf; --a3:#fbbf24; --accent:#2dd4bf; --accent-ink:#5eead4; --soft:rgba(45,212,191,.12);
   --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.35);
-  --blob1:rgba(91,124,250,.22); --blob2:rgba(154,107,255,.18); --blob3:rgba(60,198,192,.12);
+  --blob1:rgba(14,116,144,.30); --blob2:rgba(13,148,136,.20); --blob3:rgba(245,158,11,.10);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
@@ -55,7 +55,7 @@ h1,h2,h3,h4{font-family:"Bricolage Grotesque",system-ui,sans-serif;color:var(--i
 /* nav */
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(1200px,calc(100% - 24px));display:flex;align-items:center;gap:14px;padding:10px 12px 10px 14px;border-radius:999px;background:var(--card);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border:1px solid var(--line);box-shadow:var(--shadow)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.mark{width:40px;height:40px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;font:700 15px "Bricolage Grotesque";box-shadow:0 6px 18px rgba(91,124,250,.35)}
+.mark{width:40px;height:40px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;font:700 15px "Bricolage Grotesque";box-shadow:0 6px 18px rgba(14,116,144,.35)}
 .brand b{display:block;color:var(--ink);font-size:14.5px;line-height:1.1}
 .brand small{display:block;font:500 10.5px "JetBrains Mono";letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
 .links{display:flex;gap:2px;margin:0 auto}
@@ -64,8 +64,8 @@ h1,h2,h3,h4{font-family:"Bricolage Grotesque",system-ui,sans-serif;color:var(--i
 .links a.on{color:var(--accent-ink);background:var(--soft)}
 .icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card-solid);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:transform .2s}
 .icon-btn:hover{transform:rotate(18deg)}
-.cta{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:var(--grad);padding:11px 20px;border-radius:999px;font-weight:700;font-size:14px;box-shadow:0 8px 22px rgba(91,124,250,.35);transition:transform .2s,box-shadow .2s;border:0;cursor:pointer}
-.cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(91,124,250,.45)}
+.cta{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:var(--grad);padding:11px 20px;border-radius:999px;font-weight:700;font-size:14px;box-shadow:0 8px 22px rgba(14,116,144,.35);transition:transform .2s,box-shadow .2s;border:0;cursor:pointer}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,116,144,.45)}
 .ghost{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card-solid);padding:11px 22px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid var(--line);transition:transform .2s}
 .ghost:hover{transform:translateY(-2px)}
 .burger{display:none}
@@ -393,7 +393,7 @@ footer{padding:30px 0 50px;color:var(--faint);font:500 12.5px "JetBrains Mono";d
         <div class="diagram-head"><b>Integration architecture and enrolment logic</b><span>Step through to follow each path</span></div>
         <svg class="arch" id="arch" viewBox="0 0 960 360" role="img" aria-label="Architecture diagram of the Moodle integration">
           <defs>
-            <linearGradient id="eg" x1="0" x2="1"><stop offset="0" stop-color="#5b7cfa"/><stop offset=".55" stop-color="#9a6bff"/><stop offset="1" stop-color="#3cc6c0"/></linearGradient>
+            <linearGradient id="eg" x1="0" x2="1"><stop offset="0" stop-color="#0e7490"/><stop offset=".55" stop-color="#0d9488"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
             <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a90a3"/></marker>
           </defs>
           <path class="e" data-s="1" d="M210 85 C 290 85, 300 150, 380 160" marker-end="url(#ah)"/>
@@ -482,11 +482,11 @@ footer{padding:30px 0 50px;color:var(--faint);font:500 12.5px "JetBrains Mono";d
   <div class="shell">
     <div class="sec-head reveal"><div><div class="eyebrow">Toolkit</div><h2>Skills &amp; <span class="grad">tools.</span></h2><p>Design practice on one side, systems and research on the other — and the tools I use day to day.</p></div><span class="secno">Sec.06 / Skills</span></div>
     <div class="skills">
-      <div class="card reveal"><div class="sk-h"><span class="sk-ic" style="background:linear-gradient(135deg,#5b7cfa,#9a6bff)">✦</span><div><b>UX &amp; product design</b><small>Design practice</small></div></div>
+      <div class="card reveal"><div class="sk-h"><span class="sk-ic" style="background:linear-gradient(135deg,#0e7490,#0d9488)">✦</span><div><b>UX &amp; product design</b><small>Design practice</small></div></div>
         <div class="chips"><span class="chip">User research</span><span class="chip">Wireframing</span><span class="chip">High-fidelity UI</span><span class="chip">Prototyping</span><span class="chip">User testing</span><span class="chip">Design systems</span><span class="chip">Mobile UX</span></div></div>
-      <div class="card reveal"><div class="sk-h"><span class="sk-ic" style="background:linear-gradient(135deg,#9a6bff,#3cc6c0)">⌘</span><div><b>System design</b><small>Logic &amp; delivery</small></div></div>
+      <div class="card reveal"><div class="sk-h"><span class="sk-ic" style="background:linear-gradient(135deg,#0d9488,#f59e0b)">⌘</span><div><b>System design</b><small>Logic &amp; delivery</small></div></div>
         <div class="chips"><span class="chip">Workflow mapping</span><span class="chip">Business processes</span><span class="chip">Integration design</span><span class="chip">Specifications</span><span class="chip">SSO</span><span class="chip">Agile / Jira</span><span class="chip">SQL</span></div></div>
-      <div class="card reveal"><div class="sk-h"><span class="sk-ic" style="background:linear-gradient(135deg,#3cc6c0,#5b7cfa)">◎</span><div><b>AI &amp; research</b><small>Technical background</small></div></div>
+      <div class="card reveal"><div class="sk-h"><span class="sk-ic" style="background:linear-gradient(135deg,#f59e0b,#0e7490)">◎</span><div><b>AI &amp; research</b><small>Technical background</small></div></div>
         <div class="chips"><span class="chip">Machine learning</span><span class="chip">Deep learning</span><span class="chip">Computer vision</span><span class="chip">Conceptual modelling</span><span class="chip">TensorFlow</span><span class="chip">Tableau</span><span class="chip">R</span></div></div>
     </div>
     <div class="tools reveal">
@@ -629,8 +629,8 @@ footer{padding:30px 0 50px;color:var(--faint);font:500 12.5px "JetBrains Mono";d
   var ctx=cv.getContext&&cv.getContext('2d'); if(!ctx) return;
   var REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
   function C(){var d=document.documentElement.dataset.theme==='dark';return d?
-    {bg:'#151a2b',ink:'#eef0f8',muted:'#9aa1b8',rule:'rgba(255,255,255,.14)',grid:'rgba(255,255,255,.05)',face:'rgba(139,151,255,.14)',faceOff:'rgba(255,255,255,.03)',side:'rgba(0,0,0,.35)',a:'#8b97ff',b:'#3cc6c0'}:
-    {bg:'#ffffff',ink:'#0f1222',muted:'#5d6479',rule:'#d9dcea',grid:'rgba(15,18,34,.05)',face:'rgba(91,124,250,.10)',faceOff:'rgba(15,18,34,.03)',side:'rgba(40,50,110,.10)',a:'#5b6cf0',b:'#3cc6c0'};}
+    {bg:'#0e2a31',ink:'#eef0f8',muted:'#9aa1b8',rule:'rgba(255,255,255,.14)',grid:'rgba(255,255,255,.05)',face:'rgba(45,212,191,.14)',faceOff:'rgba(255,255,255,.03)',side:'rgba(0,0,0,.35)',a:'#2dd4bf',b:'#f59e0b'}:
+    {bg:'#ffffff',ink:'#0f1222',muted:'#5d6479',rule:'#d9dcea',grid:'rgba(15,18,34,.05)',face:'rgba(14,116,144,.10)',faceOff:'rgba(15,18,34,.03)',side:'rgba(40,50,110,.10)',a:'#0e7490',b:'#f59e0b'};}
   var nodes={ext:{p:[-5.2,0,0],w:3.5,h:1.5,t:'External system',t2:'External',s:'customer HR / payroll'},
     stage:{p:[0,2.4,-0.5],w:3.6,h:1.4,t:'Staging tables',t2:'Staging',s:'validate before writing'},
     core:{p:[5.2,0,0],w:3.5,h:1.6,t:'Adonis HR core',t2:'HR core',s:'person + employee'},
