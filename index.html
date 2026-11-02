@@ -578,7 +578,7 @@ footer{padding:30px 0 50px;color:var(--faint);font:500 12.5px "JetBrains Mono";d
   $$('#links a').forEach(function(a){a.onclick=function(){$('#links').classList.remove('open')}});
 
   /* typing */
-  var words=['maritime HR systems.','crew-training platforms.','workflows people understand.','integrations that agree.'], wi=0, ci=words[0].length, del=true, el=$('#typed');
+  var words=['system that matters.','user-centered platform.','workflows people understand.','integrations that agree.'], wi=0, ci=words[0].length, del=true, el=$('#typed');
   function tick(){var w=words[wi];
     if(del){ci--; if(ci<=0){del=false;wi=(wi+1)%words.length;}}
     else{ci++; if(ci>=words[wi].length){del=true; el.textContent=words[wi]; return setTimeout(tick,2200);}}
